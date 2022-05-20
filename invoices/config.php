@@ -1,5 +1,5 @@
 <?php
-$c_sitename = "Nexus";
+$c_sitename = "Nexus Hosting";
 //Your Site Name
 //This will appear around the page such as the header, asking for discount codes, etc etc.
 
