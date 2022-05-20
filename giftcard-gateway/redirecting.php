@@ -36,8 +36,10 @@
   </body>
 
 <?php
+include 'config.php';
+//You can send a post request that contains the code used here if you want. Up to you, dosen't really matter. Mostly for addon support if you wanna do stuff w / it
 //The url you wish to send the POST request to
-$url = 'https://nexussociety.net/giftcard-gateway/paymenthook.php';
+$url = '';
 
 //The data you want to send via POST
 $fields = [
@@ -69,12 +71,12 @@ if ($fpcff == $_GET['privkey']) {
   	 $file = './protectedintfilekey.txt';
      $remove = $_GET['privkey'];
   	 remove_line($file, $remove);
-	 $servername = "127.0.0.1";
-	 $username = "pterodactyl";
-	 $password = "root";
-	 $dbname = "panel";
+	 $servername = $c_servernamep;
+	 $username = $c_usernamep;
+	 $password = $c_passwordp;
+	 $dbname = $c_dbnamep;
 
-    $ch = curl_init('https://nexussociety.net/invoices/view/generatetoken/giftcards.php/');
+    $ch = curl_init($c_invoicesgen.'/giftcards.php/');
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -103,10 +105,10 @@ if ($fpcff == $_GET['privkey']) {
 
     mysqli_close($conn);
 
-      $servername = "localhost";
-	  $username = "root";
-	  $password = "password";
-	  $dbname = "nexus";
+      $servername = $c_servername;
+	  $username = $c_username;
+	  $password = $c_password;
+	  $dbname = $c_dbname;
   
 	 $conn = mysqli_connect($servername, $username, $password, $dbname);
   
@@ -140,5 +142,5 @@ function remove_line($file, $remove) {
     file_put_contents($file, $data);
 }
 
-header("Location: https://nexussociety.net/giftcard-gateway/confirm.php?amountpaid=$amount&userid=$uid&cardcode=$response");
+header("Location: $c_giftcardgateway/confirm.php?amountpaid=$amount&userid=$uid&cardcode=$response");
 ?>
