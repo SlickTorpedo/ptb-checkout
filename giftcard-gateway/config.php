@@ -27,7 +27,7 @@ $c_invoices = "https://nexussociety.net/invoices/view";
 
  DATABASE CONNECTION STUFF
 
-*/ ------------------------
+ ------------------------*/
 
 $c_servername = "localhost";
 //your ip for sql
@@ -45,7 +45,7 @@ $c_dbname = "Nexus";
 
  PANEL DATABASE
 
-*/ ------------------------
+ ------------------------*/
 
 $c_servername = "localhost";
 //your ip for sql (PANEL DATABASE)
