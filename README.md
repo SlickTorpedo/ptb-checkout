@@ -33,6 +33,9 @@ In order for it to work you will need to run the following SQL commands: **Make 
 ```CREATE TABLE creatoruses (codename LONGTEXT, valid BIGINT, userid BIGINT, timestamp BIGINT, ip LONGTEXT);``` <br>
 ```CREATE TABLE invoices (touser LONGTEXT, street LONGTEXT, state LONGTEXT, country LONGTEXT, zipcode BIGINT, quantity BIGINT, invoice LONGTEXT, uniqueid LONGTEXT, timestamp LONGTEXT);``` <br>
 
+Also there is a config file in all /payment-beta in /giftcard-gateway and /invoices that you will need to configure.
+
+
 You can run these on your pterodactyl database if you want but it's not recommended. It may break something with billing module.
 
 #
