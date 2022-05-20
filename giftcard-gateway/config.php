@@ -20,10 +20,10 @@ $c_giftcardgateway = "https://nexussociety.net/giftcard-gateway";
 //Just change it to "https://yoursite.com/giftcard-gateway
 //Don't change the /giftcard-gateway part unless you really know what you're doing.
 
-$c_invoicesgen = "https://nexussociety.net/invoices/view";
+$c_invoices = "https://nexussociety.net/invoices/view";
 //Where your invoices are stored.
 
-$c_invoices = "https://nexussociety.net/invoices/view/generatetoken";
+$c_invoicesgen = "https://nexussociety.net/invoices/view/generatetoken";
 //Where your invoice tokens are created
 
 $c_discord = "https://discord.gg/BXgjaFSsEe";
