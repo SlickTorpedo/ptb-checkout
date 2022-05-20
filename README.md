@@ -27,13 +27,15 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 
 #
 
+To install, download the code as a zip, place it in /var/www/pterodactyl/public, unzip the file, and place all the files inside into your /public directory!
+
 In order for it to work you will need to run the following SQL commands: **Make sure this is the database that is NOT the panel database in the config**
 
 ```CREATE TABLE creatorcodes (codename LONGTEXT, type LONGTEXT, amount BIGINT);``` <br>
 ```CREATE TABLE creatoruses (codename LONGTEXT, valid BIGINT, userid BIGINT, timestamp BIGINT, ip LONGTEXT);``` <br>
 ```CREATE TABLE invoices (touser LONGTEXT, street LONGTEXT, state LONGTEXT, country LONGTEXT, zipcode BIGINT, quantity BIGINT, invoice LONGTEXT, uniqueid LONGTEXT, timestamp LONGTEXT);``` <br>
 
-Also there is a config file in all /payment-beta in /giftcard-gateway and /invoices that you will need to configure.
+**Also there is a config file in all /payment-beta in /giftcard-gateway and /invoices that you will need to configure.**
 
 
 You can run these on your pterodactyl database if you want but it's not recommended. It may break something with billing module.
