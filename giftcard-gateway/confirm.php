@@ -3,8 +3,8 @@
 
 <head>
   <?php
-    $id = htmlspecialchars($_GET['id']);
-  	//include 'https://nexussociety.net/giftcard-gateway/config.php';
+    $nsvar = htmlspecialchars($_GET['id']);
+  	include 'config.php';
   ?>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -16,7 +16,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Nexus Hosting - Payment Confirmed</title>
+  <title><?php echo $c_sitename ?> - Purchase Gift Cards</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -31,8 +31,7 @@
   <!-- responsive style -->
   <link href="https://nexussociety.net/css/responsive.css" rel="stylesheet" />
 </head>
-  <html>
-<body>
+
 <body class="sub_page">
 
   <div class="hero_area">
@@ -40,9 +39,9 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="https://nexussociety.net">
+          <a class="navbar-brand" href="<?php echo $c_homeurl ?>">
             <span>
-              Payment Confirmed
+              Gift Cards
             </span>
           </a>
           </a>
@@ -56,7 +55,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="https://nexussociety.net">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?php echo $c_homeurl; ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             </div>
@@ -93,7 +92,7 @@
               What did I just buy?
             </h5>
             <p>
-              You've bought a gift card for Nexus Hosting. You can use this for adding account balance or be a good friend and give it to someone. Either way, currency is bound to that code and anyone can use it until it's empty!
+              You've bought a gift card for <?php echo $c_sitename ?>. You can use this for adding account balance or be a good friend and give it to someone. Either way, currency is bound to that code and anyone can use it until it's empty!
             </p>
           </div>
         </div>
@@ -107,7 +106,7 @@
               Oh crap... undo that please!
             </h5>
             <p>
-              If you accidentally made a purchase that you didn't mean to or changed your mind, you can always contact our support team! Just click <a href="https://nexussociety.net/support">this link</a> and we will take you there!
+              If you accidentally made a purchase that you didn't mean to or changed your mind, you can always contact our support team! Just click <a href="<?php echo $c_discord ?>">this link</a> and we will take you there!
             </p>
           </div>
         </div>
@@ -121,7 +120,7 @@
               How do I use these?
             </h5>
             <p>
-              You can redeem your gift cards <a href="https://panel.nexussociety.net/billing/balance" target="_blank"> here</a>! Just enter your gift card code there, and press "Confirm" and we will add the credits to your account!
+              You can redeem your gift cards <a href="<?php echo $c_billingpage ?>" target="_blank"> here</a>! Just enter your gift card code there, and press "Confirm" and we will add the credits to your account!
             </p>
           </div>
         </div>
@@ -129,14 +128,13 @@
       <div>
       <?php
         if(isset($_COOKIE["transactionid"]) && isset($_COOKIE["touser"]) && isset($_COOKIE["street"]) && isset($_COOKIE["state"]) && isset($_COOKIE["zipcode"]) && isset($_COOKIE["country"]) && isset($_COOKIE["amount"])){
-            $ch = curl_init('https://nexussociety.net/invoices/view/generatetoken/');
+            $ch = curl_init($c_invoicesgen);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
             curl_close($ch);
-            //response = $response;
-            //cookies:
+            //mmmm cookies
             $transactionid = $_COOKIE["transactionid"];
             $touser = $_COOKIE["touser"];
             $street = $_COOKIE["street"];
@@ -154,10 +152,10 @@
             // MAKE THE DATABASE CONNECTION
             $verify = "true";
             if (isset($verify)) {
-	            $servername = "localhost";
-	            $username = "root";
-	            $password = "password";
-	            $dbname = "nexus";
+	            $servername = $c_servernamep;
+	            $username = $c_usernamep;
+	            $password = $c_passwordp;
+	            $dbname = $c_dbnamep;
   
 	            $conn = mysqli_connect($servername, $username, $password, $dbname);
   
@@ -173,7 +171,7 @@
                 $pzipcode = mysqli_real_escape_string($conn, $zipcode);
                 $pcountry = mysqli_real_escape_string($conn, $country);
                 $pamount = mysqli_real_escape_string($conn, $amount);
-                date_default_timezone_set('America/Los_Angeles');
+                date_default_timezone_set('America/Los_Angeles'); //this is where paypal headquarters are so it makes it easier to file for stuff if paypal comes after you
                 $time = date(DATE_RFC2822);
 
                 $sql = "DELETE FROM invoices WHERE invoice = '$ptransactionid'";
@@ -185,7 +183,7 @@
                 mysqli_close($conn);
             }
 
-            echo '<a href="https://nexussociety.net/invoices/view?invoiceid='.$response.'" target="_blank"><strong>View Invoice</strong></a>';
+            echo '<a href="'.$c_invoices.'?invoiceid='.$response.'" target="_blank"><strong>View Invoice</strong></a>';
             echo '<br>Transaction ID: '.$transactionid.'<br>';
             echo 'Please screenshot this, you may need it!';
             echo '<br>';
@@ -208,7 +206,7 @@
           <div class="col-lg-7 col-md-9 mx-auto">
             <p>
               &copy; 2022 All Rights Reserved By
-              <a href="https://nexussociety.net/">NexusSociety</a>
+              <a href="<?php echo $c_homeurl ?>"><?php echo $c_sitename ?></a>
             </p>
           </div>
         </div>
