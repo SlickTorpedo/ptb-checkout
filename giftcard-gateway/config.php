@@ -23,6 +23,8 @@ $c_giftcardgateway = "https://nexussociety.net/giftcard-gateway";
 $c_invoices = "https://nexussociety.net/invoices/view";
 //Where your invoices are stored.
 
+$c_discord = "https://discord.gg/BXgjaFSsEe";
+
 /* ------------------------
 
  DATABASE CONNECTION STUFF
