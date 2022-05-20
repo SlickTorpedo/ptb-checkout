@@ -53,15 +53,15 @@ $c_dbname = "Nexus";
 
  ------------------------*/
 
-$c_servername = "localhost";
+$c_servernamep = "localhost";
 //your ip for sql (PANEL DATABASE)
 
-$c_username = "root";
+$c_usernamep = "root";
 //your username for sql (PANEL DATABASE)
 
-$c_password = "password";
+$c_passwordp = "password";
 //your password for sql (PANEL DATABASE)
 
-$c_dbname = "Nexus";
+$c_dbnamep = "Nexus";
 //your database name (PANEL DATABASE)
 ?>
