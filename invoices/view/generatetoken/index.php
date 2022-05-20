@@ -1,4 +1,5 @@
 <?php
+include '../../config.php';
 function generateRandomString($length = 50) {
     return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
  }
@@ -8,10 +9,10 @@ $randomstring = generateRandomString();
 
 $verify = "true";
 if (isset($verify)) {
-	$servername = "localhost";
-	$username = "root";
-	$password = "password";
-	$dbname = "nexus";
+	$servername = $c_servername;
+	$username = $c_username;
+	$password = $c_password;
+	$dbname = $c_dbname;
   
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
   
@@ -39,10 +40,10 @@ if (isset($verify)) {
 function generateNewString(){
     $verify = "true";
     if (isset($verify)) {
-        $servername = "localhost";
-	$username = "root";
-	$password = "password";
-	$dbname = "nexus";
+        $servername = $c_servername;
+	$username = $c_username;
+	$password = $c_password;
+	$dbname = $c_dbname;
       
         $conn = mysqli_connect($servername, $username, $password, $dbname);
       
