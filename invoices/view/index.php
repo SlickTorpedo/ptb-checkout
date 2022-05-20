@@ -43,8 +43,6 @@ if (isset($verify)) {
 	    }
 	} else {
         //do nothing
-        //SYNTAX: INSERT INTO invoices (touser,street,state,country,zipcode,invoice,uniqueid,quantity) VALUES ('Slick Torpedo','1777 West Ocotillo Road','UNITED STATES OF AMERICA','Chandler Arizona','85248','3F8A4L9E1CD2A','1108391282','20');
-        //TOKEN GENERATOR: https://nexussociety.net/invoices/view/generatetoken/
 	}
 
 
