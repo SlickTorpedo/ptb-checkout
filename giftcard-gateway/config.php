@@ -12,7 +12,7 @@ $c_panelpage = "https://panel.nexussociety.net";
 $c_homeurl = "https://nexussociety.net";
 //This is your homepage. If you installed this module on pterodactyl, it will be panel.yoursite.com or whatever you have. If it's on another web server, just put the address here!
 
-$c_paypaltoken = "Acy7nAM59-KEyI0qRKkWKEyisj2MUpPhHXTx0Bz0FxYnWnRPPIer3hhOontD0YaWhuqi1FjsBImgXJY2";
+$c_paypaltoken = "test";
 //You need a buisness account for this, here's how to get it:
 //https://youtu.be/MxYnR4qzUQI
 
