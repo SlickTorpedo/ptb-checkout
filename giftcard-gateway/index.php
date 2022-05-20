@@ -4,7 +4,7 @@
 <head>
   <?php
     $nsvar = htmlspecialchars($_GET['id']);
-  	//include 'https://nexussociety.net/giftcard-gateway/config.php';
+  	include 'config.php';
   ?>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -16,7 +16,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Nexus Hosting - Purchase Gift Cards</title>
+  <title><?php echo $c_sitename ?> - Purchase Gift Cards</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -66,7 +66,7 @@
     }
       
     function redirectHome(){
-      window.location.href = "https://panel.nexussociety.net/billing/balance";
+      window.location.href = "<?php echo $c_billingpage; ?>";
     }
     
     function calculateDiscount(password, amount) {
@@ -74,7 +74,7 @@
             //do nothing
         } else {
           var tcouzigrshrdqwjeovwtrsffarfcnbzeikaniaccnopdpxhunby = 0;
-          window.location.replace("https://panel.nexussociety.net");
+          window.location.replace("<?php echo $c_panelpage; ?>");
         }
      }
     
@@ -101,7 +101,7 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="https://nexussociety.net">
+          <a class="navbar-brand" href="<?php echo $c_homeurl ?>">
             <span>
               Gift Cards
             </span>
@@ -117,7 +117,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="https://nexussociety.net">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?php echo $c_homeurl; ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             </div>
@@ -146,7 +146,7 @@
               echo "Error! You must enter an amount to add!<br>Returning in 3 seconds!";
               echo '<script type="text/javascript">';
 			  echo 'function Redirect() ';
-              echo '{ window.location="https://panel.nexussociety.net/billing/balance"; }';
+              echo '{ window.location="'.$c_billingpage.'"; }';
               echo "setTimeout('Redirect()', 3000);";
               echo '</script>';
               die();
@@ -164,7 +164,7 @@
 			?>
           	<input type="hidden" id="myText" value="<?php echo $amount ?>">
           	Purchasing a Gift Card for <strong><?php echo $amount ?></strong>$<br><br>
-    		<script src="https://www.paypal.com/sdk/js?client-id=AXTHEOS-BmPAUsuzItq_YW_kMLxGB7u_K7MJzkAmDd5e1LiYlE0UAnLrLSrQYpadoktwY-hNsulbezfE&currency=USD"></script>
+    		<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $c_paypaltoken ?>&currency=USD"></script>
             <!-- <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script> -->
 
     		<!-- Set up a container element for the button -->
@@ -231,7 +231,7 @@
                     document.cookie = "country=" + country + ";";
                     let amountreplace = amount.replace(".00", "");
                     document.cookie = "amount=" + amountreplace + ";";
-           			actions.redirect('https://nexussociety.net/giftcard-gateway/redirecting.php?id=<?php echo htmlspecialchars($_GET['uid']); ?>&varamt=<?php echo $nsrandvar ?>&privkey=<?php echo $txt ?>&discountcode=' + getCurrentDiscountCode() + '');
+           			actions.redirect('<?php echo $c_giftcardgateway; ?>/redirecting.php?id=<?php echo htmlspecialchars($_GET['uid']); ?>&varamt=<?php echo $nsrandvar ?>&privkey=<?php echo $txt ?>&discountcode=' + getCurrentDiscountCode() + '');
           		});
         		}
       		}).render('#paypal-button-container');
@@ -267,7 +267,7 @@
           <div class="col-lg-7 col-md-9 mx-auto">
             <p>
               &copy; 2022 All Rights Reserved By
-              <a href="https://nexussociety.net/">NexusSociety</a>
+              <a href="<?php echo $c_homeurl; ?>"><?php echo $c_sitename ?></a>
             </p>
           </div>
         </div>
