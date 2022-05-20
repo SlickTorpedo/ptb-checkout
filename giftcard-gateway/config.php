@@ -23,7 +23,11 @@ $c_giftcardgateway = "https://nexussociety.net/giftcard-gateway";
 $c_invoices = "https://nexussociety.net/invoices/view";
 //Where your invoices are stored.
 
+$c_invoices = "https://nexussociety.net/invoices/view/generatetoken";
+//Where your invoice tokens are created
+
 $c_discord = "https://discord.gg/BXgjaFSsEe";
+//Your discord
 
 /* ------------------------
 
