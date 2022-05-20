@@ -2,14 +2,15 @@
 <html>
 <body>
 <?php
+include 'config.php';
 session_start();
 $code = $_POST['name'];
 $verify = "true";
 if (isset($verify)) {
-	$servername = "localhost";
-	$username = "root";
-	$password = "password";
-	$dbname = "nexus";
+	$servername = $c_servername;
+	$username = $c_username;
+	$password = $c_password;
+	$dbname = $c_dbname;
   
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
   
