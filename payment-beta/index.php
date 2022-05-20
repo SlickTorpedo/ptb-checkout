@@ -4,6 +4,7 @@
 <head>
   <?php
     $nsvar = htmlspecialchars($_GET['id']);
+  	include 'config.php';
   ?>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -15,7 +16,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Nexus Hosting - Purchase</title>
+  <title><?php echo $c_sitename ?> - Checkout</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
@@ -53,8 +54,6 @@
           	$('#amount').html(data);
           	$('#creatorcode')[0].reset();
         });
-      	//$.post("paymentwebook.php", { discountcode: name },
-		//);
         
      }
     
@@ -67,16 +66,15 @@
     }
       
     function redirectHome(){
-      window.location.href = "https://panel.nexussociety.net/billing/balance";
+      window.location.href = "<?php echo $c_billingpage; ?>";
     }
     
     function calculateDiscount(password, amount) {
 		if (password === "387ec36b-54db-4b23-a52b-2c60c727b2eb0f96284b-be0b-4ff2-b563-8516c1ca42def3dc2082"){
-          //var tcouzigrshrdqwjeovwtrsffarfcnbzeikaniaccnopdpxhunby = amount;
-          //console.log(tcouzigrshrdqwjeovwtrsffarfcnbzeikaniaccnopdpxhunby);
+            //do nothing
         } else {
           var tcouzigrshrdqwjeovwtrsffarfcnbzeikaniaccnopdpxhunby = 0;
-          window.location.replace("https://panel.nexussociety.net");
+          window.location.replace("<?php echo $c_panelpage; ?>");
         }
      }
     
@@ -103,9 +101,9 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="https://nexussociety.net">
+          <a class="navbar-brand" href="<?php echo $c_homeurl ?>">
             <span>
-              Purchase Credits
+              Checkout
             </span>
           </a>
           </a>
@@ -119,7 +117,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="https://nexussociety.net">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="<?php echo $c_homeurl; ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             </div>
@@ -148,7 +146,7 @@
               echo "Error! You must enter an amount to add!<br>Returning in 3 seconds!";
               echo '<script type="text/javascript">';
 			  echo 'function Redirect() ';
-              echo '{ window.location="https://panel.nexussociety.net/billing/balance"; }';
+              echo '{ window.location="'.$c_billingpage.'"; }';
               echo "setTimeout('Redirect()', 3000);";
               echo '</script>';
               die();
@@ -165,9 +163,8 @@
           	$nsrandvar = $amount + 5318;
 			?>
           	<input type="hidden" id="myText" value="<?php echo $amount ?>">
-          	Purchasing <strong><?php echo $amount ?></strong> Account Credits<br><br>
-    		<!-- Include the PayPal JavaScript SDK; replace "test" with your own sandbox Business account app client ID -->
-    		<script src="https://www.paypal.com/sdk/js?client-id=AXTHEOS-BmPAUsuzItq_YW_kMLxGB7u_K7MJzkAmDd5e1LiYlE0UAnLrLSrQYpadoktwY-hNsulbezfE&currency=USD"></script>
+          	Purchasing <strong><?php echo $amount ?></strong> account credits<br><br>
+    		<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $c_paypaltoken ?>&currency=USD"></script>
             <!-- <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script> -->
 
     		<!-- Set up a container element for the button -->
@@ -184,6 +181,7 @@
                 }
         		return z;
 	  		}
+      
       		paypal.Buttons({
         		// Sets up the transaction when a payment button is clicked
         		createOrder: function(data, actions) {
@@ -233,50 +231,19 @@
                     document.cookie = "country=" + country + ";";
                     let amountreplace = amount.replace(".00", "");
                     document.cookie = "amount=" + amountreplace + ";";
-           			actions.redirect('https://nexussociety.net/payment-beta/redirecting.php?id=<?php echo htmlspecialchars($_GET['uid']); ?>&varamt=<?php echo $nsrandvar ?>&privkey=<?php echo $txt ?>&discountcode=' + getCurrentDiscountCode() + '');
-            		//location.href = 'https://nexussociety.net/payment-test/confirm.php?id= + transaction.id';
+           			actions.redirect('<?php echo $c_paymentgateway; ?>/redirecting.php?id=<?php echo htmlspecialchars($_GET['uid']); ?>&varamt=<?php echo $nsrandvar ?>&privkey=<?php echo $txt ?>&discountcode=' + getCurrentDiscountCode() + '');
           		});
         		}
       		}).render('#paypal-button-container');
 
     		</script>
-          	<a href="https://nexussociety.net/giftcard-gateway/?amount=<?php echo $_GET["amount"]; ?>&uid=<?php echo $_GET["uid"]; ?>" class="myButton">Buy A Gift Card</a>
-          <style>
-
-			.myButton {
-				box-shadow:inset 0px 1px 0px 0px #e184f3;
-				background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
-				background-color:#c123de;
-				border-radius:6px;
-				border:1px solid #a511c0;
-				display:inline-block;
-				cursor:pointer;
-				color:#ffffff;
-				font-family:Arial;
-				font-size:15px;
-				font-weight:bold;
-				padding:6px 24px;
-				text-decoration:none;
-				text-shadow:0px 1px 0px #9b14b3;
-              
-			}
-			.myButton:hover {
-				background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
-				background-color:#a20dbd;
-			}
-            
-			.myButton:active {
-				position:relative;
-				top:1px;
-			}
-          </style>
     		</div>
       </div>
     </div>
     	<?php
   		session_start();
   		?>
-    <label for="creatorcode"><strong><font color="#006400">-- Support a Creator --</font></strong></label><br>
+    	<label for="creatorcode"><strong><font color="#006400">-- Support a Creator --</font></strong></label><br>
     	 <script src="http://code.jquery.com/jquery-latest.js"></script>
   		<form id="creatorcode" method="post">
          <input name="creatorcode" id="name" type="text" />
@@ -300,7 +267,7 @@
           <div class="col-lg-7 col-md-9 mx-auto">
             <p>
               &copy; 2022 All Rights Reserved By
-              <a href="https://nexussociety.net/">NexusSociety</a>
+              <a href="<?php echo $c_homeurl; ?>"><?php echo $c_sitename ?></a>
             </p>
           </div>
         </div>
