@@ -14,7 +14,11 @@ This was promised a long time ago and then the configuration file was holding me
 
 What comes in the updated one:
 
-Automatic Invoices
-Giftcard Purchases
-Search Invoices with Discord Bot
-Creator Codes and Discount Codes
+Automatic Invoices<br>
+Giftcard Purchases<br>
+Search Invoices with Discord Bot<br>
+Creator Codes and Discount Codes<br>
+
+#
+
+There's also some other security upgrades, stuff to make it run faster, and a lot of other things like that. Enjoy!
