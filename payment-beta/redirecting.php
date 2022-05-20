@@ -36,8 +36,8 @@
   </body>
 
 <?php
-//The url you wish to send the POST request to
-$url = 'https://nexussociety.net/payment-beta/paymenthook.php';
+//The url you wish to send the POST request to (for alerts)
+$url = 'paymenthook.php';
 
 //The data you want to send via POST
 $fields = [
@@ -69,10 +69,10 @@ if ($fpcff == $_GET['privkey']) {
   	 $file = './protectedintfilekey.txt';
      $remove = $_GET['privkey'];
   	 remove_line($file, $remove);
-	 $servername = "localhost";
-	 $username = "pterodactyl";
-	 $password = "password";
-	 $dbname = "panel";
+	 $servername = $c_servernamep;
+	 $username = $c_usernamep;
+	 $password = $c_passwordp;
+	 $dbname = $c_dbnamep;
   
 	 $conn = mysqli_connect($servername, $username, $password, $dbname);
   
@@ -88,10 +88,10 @@ if ($fpcff == $_GET['privkey']) {
 
    mysqli_close($conn);
 
-   $servername = "localhost";
-	  $username = "root";
-	  $password = "password";
-	  $dbname = "nexus";
+   $servername = $c_servername;
+	  $username = $c_username;
+	  $password = $c_password;
+	  $dbname = $c_dbname;
   
 	 $conn = mysqli_connect($servername, $username, $password, $dbname);
   
@@ -128,5 +128,5 @@ function remove_line($file, $remove) {
   
   
 <?php
-header("Location: https://nexussociety.net/payment-beta/confirm.php?amountpaid=$amount&userid=$uid");
+header("Location: $c_paymentgateway/confirm.php?amountpaid=$amount&userid=$uid&cardcode=$response");
 ?>
