@@ -22,3 +22,9 @@ Creator Codes and Discount Codes<br>
 #
 
 There's also some other security upgrades, stuff to make it run faster, and a lot of other things like that. Enjoy!
+
+#
+
+In order for it to work you will need to run the following SQL commands:
+
+
