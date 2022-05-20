@@ -20,6 +20,9 @@ $c_giftcardgateway = "https://nexussociety.net/giftcard-gateway";
 //Just change it to "https://yoursite.com/giftcard-gateway
 //Don't change the /giftcard-gateway part unless you really know what you're doing.
 
+$c_invoices = "https://nexussociety.net/invoices/view";
+//Where your invoices are stored.
+
 /* ------------------------
 
  DATABASE CONNECTION STUFF
@@ -38,6 +41,21 @@ $c_password = "password";
 $c_dbname = "Nexus";
 //your database name
 
-$c_invoices = "https://nexussociety.net/invoices/view";
-//Where your invoices are stored. If you don't want invoices, set this to "OFF" but i'd highly recommend it.
+/* ------------------------
+
+ PANEL DATABASE
+
+*/ ------------------------
+
+$c_servername = "localhost";
+//your ip for sql (PANEL DATABASE)
+
+$c_username = "root";
+//your username for sql (PANEL DATABASE)
+
+$c_password = "password";
+//your password for sql (PANEL DATABASE)
+
+$c_dbname = "Nexus";
+//your database name (PANEL DATABASE)
 ?>
