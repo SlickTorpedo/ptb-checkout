@@ -16,7 +16,7 @@ $c_paypaltoken = "test";
 //You need a buisness account for this, here's how to get it:
 //https://youtu.be/MxYnR4qzUQI
 
-$c_giftcardgateway = "https://nexussociety.net/giftcard-gateway";
+$c_paymentgateway = "https://nexussociety.net/giftcard-gateway";
 //Just change it to "https://yoursite.com/giftcard-gateway
 //Don't change the /giftcard-gateway part unless you really know what you're doing.
 
