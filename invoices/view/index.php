@@ -6,6 +6,7 @@
   } else {
     $invoiceid = "NULL";
   }
+  include '../config.php';
   ?>
   <title>Invoice <?php echo $invoiceid; ?></title>
 </head>
@@ -339,7 +340,7 @@ if (isset($verify)) {
                 <td class="s0"></td>
                 <td class="s0"></td>
                 <td class="s0"></td>
-                <td class="s2" dir="ltr" colspan="4">Nexus Hosting</td>
+                <td class="s2" dir="ltr" colspan="4"><?php echo $c_sitename ?></td>
                 <td class="s0"></td>
             </tr>
             <tr style="height: 20px">
@@ -358,8 +359,8 @@ if (isset($verify)) {
                     <div class="row-header-wrapper" style="line-height: 20px">4</div>
                 </th>
                 <td class="s0"></td>
-                <td class="s4" dir="ltr" colspan="3" rowspan="3">Nexus Invoice</td>
-                <td class="s5" dir="ltr" colspan="4">Chandler</td>
+                <td class="s4" dir="ltr" colspan="3" rowspan="3"><?php echo $c_sitename ?> Invoice</td>
+                <td class="s5" dir="ltr" colspan="4"><?php echo $c_city; ?></td>
                 <td class="s0"></td>
             </tr>
             <tr style="height: 20px">
@@ -367,7 +368,7 @@ if (isset($verify)) {
                     <div class="row-header-wrapper" style="line-height: 20px">5</div>
                 </th>
                 <td class="s0"></td>
-                <td class="s5" dir="ltr" colspan="4">Arizona</td>
+                <td class="s5" dir="ltr" colspan="4"><?php echo $c_state; ?></td>
                 <td class="s0"></td>
             </tr>
             <tr style="height: 20px">
@@ -375,7 +376,7 @@ if (isset($verify)) {
                     <div class="row-header-wrapper" style="line-height: 20px">6</div>
                 </th>
                 <td class="s0"></td>
-                <td class="s5" dir="ltr" colspan="4">85248</td>
+                <td class="s5" dir="ltr" colspan="4"><?php echo $c_zipcode; ?></td>
                 <td class="s0"></td>
             </tr>
             <tr style="height: 48px">
@@ -499,7 +500,7 @@ if (isset($verify)) {
                 </th>
                 <td></td>
                 <td class="s12" dir="ltr">Account Credit</td>
-                <td class="s12" dir="ltr" colspan="2">Nexus Hosting account credit. $1.00 USD / Credit</td>
+                <td class="s12" dir="ltr" colspan="2"><?php echo $c_sitename ?> account credit. $1.00 USD / Credit</td>
                 <td class="s11" dir="ltr"><?php echo $quantity ?></td>
                 <?php
                 $price = $quantity * 1;
