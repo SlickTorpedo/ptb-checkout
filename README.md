@@ -40,7 +40,7 @@ In order for it to work you will need to run the following SQL commands: **Make 
 
 You can run these on your pterodactyl database if you want but it's not recommended. It may break something with billing module.<br><br>
 
-To make it work with billing module please click and read all the stuff <a href="https://github.com/SlickTorpedo/wayzee-gateway/tree/main/IMPORTANT">here</a>
+To make it work with billing module please click and read all the stuff <a target="_blank" href="https://github.com/SlickTorpedo/wayzee-gateway/tree/main/IMPORTANT">here</a>
 
 #
 
