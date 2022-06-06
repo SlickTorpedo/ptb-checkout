@@ -1,25 +1,18 @@
 **YOU WILL NEED A PAYPAL BUISNESS ACCOUNT FOR THIS**
 
-#
-
-The updated version of 
-
-https://github.com/SlickTorpedo/wayzee-gateway
+**YOU WILL NEED THE MUBEEN BILLING MODULE FOR THIS**
 
 #
 
-This was promised a long time ago and then the configuration file was holding me back but finally, it's ready!
+**UPDATE SINCE V1:**
 
-#
-
-What comes in the updated one:
-
-Automatic Invoices<br>
-Giftcard Purchases<br>
-Search Invoices with Discord Bot<br>
-Creator Codes and Discount Codes<br>
-*Note, the panel for checking creator uses dosen't work yet. You have to use the database*<br>
-A lot of little things here and there<br>
+- Creator code removed *(because it doesn't work perfectly but will be there for V3 with the addition of discount code)*<br>
+- Improved notification system to send discord messages to each order<br>
+- Improvement of the configuration file<br>
+- Improvement of some parts of the code<br>
+- Added the possibility to easily customize the design of the pages<br>
+- New design for the generation of invoices with 6 templates<br>
+- A lot of little things here and there<br>
 
 #
 
@@ -27,27 +20,30 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 
 #
 
-To install, download the code as a zip, place it in /var/www/pterodactyl/public, unzip the file, and place all the files inside into your /public directory!
+**SETUP**
 
-In order for it to work you will need to run the following SQL commands: **Make sure this is the database that is NOT the panel database in the config**
+1. **Download** the code as a zip
+2. **Unzip** the file
+3. **Place** `checkout` into your /var/www/pterodactyl/public directory!
 
-```CREATE TABLE creatorcodes (codename LONGTEXT, type LONGTEXT, amount BIGINT);``` <br>
-```CREATE TABLE creatoruses (codename LONGTEXT, valid BIGINT, userid BIGINT, timestamp BIGINT, ip LONGTEXT);``` <br>
-```CREATE TABLE invoices (touser LONGTEXT, street LONGTEXT, state LONGTEXT, country LONGTEXT, zipcode BIGINT, quantity BIGINT, invoice LONGTEXT, uniqueid LONGTEXT, timestamp LONGTEXT);``` <br>
-
-**Also there is a config file in all /payment-beta in /giftcard-gateway and /invoices that you will need to configure.**
-
-
-You can run these on your pterodactyl database if you want but it's not recommended. It may break something with billing module.<br><br>
-
-You DO NOT need the /important folder this just contains information on how to hook it into billing module.
+4. **Connexion to MySql** - ```mysql -u root -p```
+5. **Create Database** `checkout` - ```CREATE DATABASE checkout;```
+6. **Create User** `checkout` - ```CREATE USER 'checkout'@'localhost' IDENTIFIED BY 'password';```
+7. **Give the privilege** to the user `checkout` for the database `checkout` - ```GRANT ALL PRIVILEGES ON checkout.* TO 'checkout'@'localhost'  WITH GRANT OPTION;```
+8. **Give the privilege** to the user `checkout` for the database `panel` *(pterodactyl panel)* - ```GRANT ALL PRIVILEGES ON panel.* TO 'checkout'@'localhost'  WITH GRANT OPTION;```
+9. **create the tables** in the database `checkout` :
+	- ```CREATE TABLE creatorcodes (codename LONGTEXT, type LONGTEXT, amount BIGINT);``` *(For the creator code but will not be used in this version, __but you must create the table for the proper functioning!__)*<br>
+	- ```CREATE TABLE creatoruses (codename LONGTEXT, valid BIGINT, userid BIGINT, timestamp BIGINT, ip LONGTEXT);``` *(To have a trace of the codes used but will not be used in this version, __but you must create the table for the proper functioning!__)*<br>
+	- ```CREATE TABLE invoices (touser LONGTEXT, street LONGTEXT, state LONGTEXT, country LONGTEXT, zipcode BIGINT, quantity BIGINT, invoice LONGTEXT, timestamp LONGTEXT);``` *(For the invoice generation system)* <br>
+10. Completed the configuration file in `/checkout/config.php`
+11. Go to the `PANEL` folder and follow the instructions for modifications on the pterodactyl panel
 
 #
 
-If at any point you are confused feel free to go here: https://discord.gg/DbfA6NfP
+If you have a concern, a misunderstanding, ideas for improvement, or just want to support us, feel free to join the Discord server: https://discord.gg/nH4H97cYVA
 
 #
 
-Thanks!
+Create by `Slick` and <a href="https://www.buymeacoffee.com/ikiae">`Ikiae`</a>
 
-
+Made with Love ❤️
