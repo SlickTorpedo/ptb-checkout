@@ -26,7 +26,7 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 2. **Unzip** the file
 3. **Place** `checkout` into your /var/www/pterodactyl/public directory!
 
-4. **Connexion to MySql** - ```mysql -u root -p```
+4. **Connection to MySql** - ```mysql -u root -p```
 5. **Create Database** `checkout` - ```CREATE DATABASE checkout;```
 6. **Create User** `checkout` - ```CREATE USER 'checkout'@'localhost' IDENTIFIED BY 'password';```
 7. **Give the privilege** to the user `checkout` for the database `checkout` - ```GRANT ALL PRIVILEGES ON checkout.* TO 'checkout'@'localhost'  WITH GRANT OPTION;```
