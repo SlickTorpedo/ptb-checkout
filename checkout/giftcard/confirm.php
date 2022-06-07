@@ -183,7 +183,7 @@
             }
 
 
-            echo '<a href="'.$c_invoicegateway.'?transactionid='.$transactionid.'?output=HTML" target="_blank"><strong>View Invoice</strong></a>';
+            echo '<a href="'.$c_invoicegateway.'?transactionid='.$transactionid.'&output=HTML" target="_blank"><strong>View Invoice</strong></a>';
             echo '<br><a href="'.$c_invoicegateway.'?transactionid='.$transactionid.'&output=PDF" target="_blank"><strong>Download PDF</strong></a>';
             echo '<br><br>Transaction ID: '.$transactionid;
         } else {
