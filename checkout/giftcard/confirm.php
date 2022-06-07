@@ -56,7 +56,7 @@
             <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="<?php echo $c_homeurl; ?>/balance">Balance <span class="sr-only">(balance)</span></a>
+                  <a class="nav-link" href="<?php echo $c_homeurl; ?>/billing/balance">Balance <span class="sr-only">(balance)</span></a>
                 </li>
               </ul>
             </div>
