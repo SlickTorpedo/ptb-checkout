@@ -86,9 +86,9 @@ $c_servernamep = "localhost";
 // your ip for sql (PANEL DATABASE)
 // default: localhost
 
-$c_usernamep = "pterodactyl";
+$c_usernamep = "checkout";
 // your username for sql (PANEL DATABASE)
-// default: pterodactyl
+// default: checkout
 
 $c_passwordp = "xxxxxxxxxxxxxxxxxx";
 // your password for sql (PANEL DATABASE)
