@@ -1,3 +1,5 @@
+# <a href="https://github.com/SlickTorpedo/ptb-checkout/tree/V2">V2 AVAILABLE HERE</a>
+
 **YOU WILL NEED A PAYPAL BUISNESS ACCOUNT FOR THIS**
 
 #
