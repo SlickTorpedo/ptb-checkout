@@ -217,7 +217,7 @@
              */
             [
                 // Set the title for your embed
-                "title" => 'Gift Card',
+                "title" => 'GIFT CARD',
 
                 // The type of your embed, will ALWAYS be "rich"
                 "type" => "rich",
