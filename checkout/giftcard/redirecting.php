@@ -201,7 +201,6 @@
     $url = $c_webhook;
     $headers = [ 'Content-Type: application/json; charset=utf-8' ];
     $POST = [
-        'username' => 'HG Discount',
         'content' => '**__GIFTCARD ' . $user . '__**
 
 **User ID :** ' . $userid . '
