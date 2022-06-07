@@ -166,7 +166,7 @@
                 $pzipcode = mysqli_real_escape_string($conn, $zipcode);
                 $pcountry = mysqli_real_escape_string($conn, $country);
                 $pamount = mysqli_real_escape_string($conn, $amount);
-                date_default_timezone_set('America/New_York'); //this is where paypal headquarters are so it makes it easier to file for stuff if paypal comes after you
+                date_default_timezone_set($c_timezone); //this is where paypal headquarters are so it makes it easier to file for stuff if paypal comes after you
                 $time = date(DATE_RFC2822);
 
                 $sql = "SELECT invoice FROM invoices WHERE invoice = '$ptransactionid'";
