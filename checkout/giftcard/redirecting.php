@@ -169,9 +169,16 @@
 ?>
 
 <?php
-    $discountcode = $_GET["discountcode"];
+    $creatorcode = $_GET["discountcode"];
+    if ($creatorcode === ""){
+        $creatorcode = "N/A";
+    } else {
+        $creatorcode = $creatorcode;
+    }
     $userid = $_GET["id"];
     $price = $_GET["varamt"] - $_GET['privkey'];
+    $transactionid = $_COOKIE["transactionid"];
+    $date = date_format(date_timestamp_set(new DateTime(), $time)->setTimezone(new DateTimeZone($c_timezone)), 'c');
 
     $servername = $c_servernamep;
     $username = $c_usernamep;
@@ -186,40 +193,124 @@
 
     $userid = mysqli_real_escape_string($conn, $userid);
 
-    $sql = "SELECT username FROM users WHERE id = $userid";
+    $sql = "SELECT * FROM users WHERE id = $userid";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             $user = $row['username'];
             $user = strtoupper($user);
+            $email = $row['email'];
+            $email = md5($email);
         }
     } else {
         $user = 'NO USER';
     }
     mysqli_close($conn);
 
-    $url = $c_webhook;
-    $headers = [ 'Content-Type: application/json; charset=utf-8' ];
-    $POST = [
-        'content' => '**__GIFTCARD ' . $user . '__**
+    $hookObject = json_encode([
+        /*
+         * An array of Embeds
+         */
+        "embeds" => [
+            /*
+             * Our first embed
+             */
+            [
+                // Set the title for your embed
+                "title" => 'Gift Card',
 
-**User ID :** ' . $userid . '
-**Amount :** ' . $price . '$
-**GiftCard :** ' . $prandomstring . '
-**Code : **' . $discountcode . '
-**ID : **' . $_COOKIE["transactionid"] . '
-**Invoice : **' . $c_homeurl . $c_invoicegateway . '?transactionid=' . $_COOKIE["transactionid"] . '&output=HTML
-ㅤ'
-    ];
+                // The type of your embed, will ALWAYS be "rich"
+                "type" => "rich",
+
+                // A description for your embed
+                "description" => "",
+
+                // The URL of where your title will be a link to
+                "url" => $c_homeurl . $c_invoicegateway . '?transactionid=' . $_COOKIE["transactionid"] . '&output=HTML',
+
+                /* A timestamp to be displayed below the embed, IE for when an an article was posted
+                 * This must be formatted as ISO8601
+                 */
+                "timestamp" => $date,
+
+                // The integer color to be used on the left side of the embed
+                "color" => hexdec($c_embedcolor),
+
+                // Footer object
+                "footer" => [
+                    "text" => $c_sitename,
+                    "icon_url" => $c_homeurl . $c_favicon
+                ],
+
+                // Thumbnail object
+                "thumbnail" => [
+                    "url" => 'https://www.gravatar.com/avatar/' . $email
+                ],
+
+                // Author object
+                "author" => [
+                    "name" => $user,
+                    "url" => $c_homeurl . '/billing/admin/user/' . $userid . '/payments'
+                ],
+
+                // Field array of objects
+                "fields" => [
+                    // Field 1
+                    [
+                        "name" => 'Amount',
+                        "value" => $amount,
+                        "inline" => true
+                    ],
+                    // Field 2
+                    [
+                        "name" => "Creator Code",
+                        "value" => $creatorcode,
+                        "inline" => true
+                    ],
+                    // Field 3
+                    [
+                        "name" => "Discount Code",
+                        "value" => $creatorcode,
+                        "inline" => true
+                    ],
+                    // Field 4
+                    [
+                        "name" => "Card Code",
+                        "value" => $prandomstring,
+                        "inline" => true
+                    ],
+                    // Field 5
+                    [
+                        "name" => "User ID",
+                        "value" => $userid,
+                        "inline" => true
+                    ],
+                    // Field 6
+                    [
+                        "name" => "Transaction ID",
+                        "value" => $transactionid,
+                        "inline" => true
+                    ]
+                ]
+            ]
+        ]
+
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POST));
-    $response   = curl_exec($ch);
+
+    curl_setopt_array( $ch, [
+        CURLOPT_URL => $c_webhook,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $hookObject,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json"
+        ]
+    ]);
+
+    $response = curl_exec( $ch );
+    curl_close( $ch );
+
 ?>
 
 <?php
