@@ -48,6 +48,14 @@ $c_webhook = "https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/xxxxxxxxxxx
 // Your discord webhook
 // default: https://discordapp.com/api/webhooks/xxxxxxxxxxxxxxxxxx/xxxxxxxxxxxxxxxxxx
 
+$c_embedcolor = "FFFFFF";
+// Your discord embed color
+// default: FFFFFF
+
+$c_timezone = "America/New_York";
+// Time Zone
+// default: America/New_York
+
 /* ------------------------
 
  DATABASE CONNECTION STUFF
@@ -115,6 +123,7 @@ $c_invoicephone = "Phone: xxx-xxx-xxx";
 $c_invoiceemail = "contact@domain.com";
 // contact email company
 // default: contact@domain.com
+
 ?>
 
 <!-- Don't touch this -->
