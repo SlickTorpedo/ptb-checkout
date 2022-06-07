@@ -123,7 +123,8 @@
       }
       $idnummax = $idnummax + 1;
       $amount = mysqli_real_escape_string($conn, $_GET["varamt"]);
-      $amount = $amount - 5318;
+      $privkey = mysqli_real_escape_string($conn, $_GET["privkey"]);
+      $amount = $amount - $privkey;
       $uid = mysqli_real_escape_string($conn, $_GET["id"]);
       $sql = "INSERT INTO billing_giftcards (`id`, `name`, `value`, `code`, `limit`) VALUES ('$idnummax', 'Store Purchase', '$amount', '$prandomstring', '1');";
       $result = mysqli_query($conn, $sql);
@@ -170,7 +171,7 @@
 <?php
     $discountcode = $_GET["discountcode"];
     $userid = $_GET["id"];
-    $price = $_GET["varamt"] - 5318;
+    $price = $_GET["varamt"] - $_GET['privkey'];
 
     $servername = $c_servernamep;
     $username = $c_usernamep;
@@ -207,6 +208,8 @@
 **Amount :** ' . $price . '$
 **GiftCard :** ' . $prandomstring . '
 **Code : **' . $discountcode . '
+**ID : **' . $_COOKIE["transactionid"] . '
+**Invoice : **' . $c_homeurl . $c_invoicegateway . '?transactionid=' . $_COOKIE["transactionid"] . '&output=HTML
 ㅤ'
     ];
 
