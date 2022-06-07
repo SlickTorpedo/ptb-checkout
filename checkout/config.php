@@ -54,6 +54,7 @@ $c_embedcolor = "FFFFFF";
 
 $c_timezone = "America/New_York";
 // Time Zone
+// http://www.healthstream.com/hlchelp/Administrator/Classes/HLC_Time_Zone_Abbreviations.htm (LiveMeeting column)
 // default: America/New_York
 
 /* ------------------------
