@@ -39,7 +39,7 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 
 # DEMO
 
-<img width="900" style="inline-block" src="https://github.com/SlickTorpedo/ptb-checkout/blob/V2/ptb-checkout.gif?raw=true">
+<img width="900" style="inline-block" src="https://github.com/SlickTorpedo/ptb-checkout/blob/V2/DEMO.gif?raw=true">
 
 # INVOICE TEMPLATE
 <p float="left">
