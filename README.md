@@ -37,6 +37,20 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 11. Completed the configuration file in `/checkout/config.php`
 12. Go to the `PANEL` folder and follow the instructions for modifications on the pterodactyl panel
 
+# DEMO
+
+<img width="900" style="inline-block" src="https://github.com/SlickTorpedo/ptb-checkout/blob/V2/ptb-checkout.gif?raw=true">
+
+# INVOICE TEMPLATE
+<p float="left">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-3.png">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-4.png">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-5.png">
+  <img width="300" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
+</p><br>
+
 #
 
 If you have a concern, a misunderstanding, ideas for improvement, or just want to support us, feel free to join the Discord server: https://discord.gg/nH4H97cYVA
