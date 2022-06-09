@@ -22,6 +22,11 @@ $c_paypaltoken = "test";
 // video: https://youtu.be/MxYnR4qzUQI
 // default: test
 
+$c_currency = "USD"
+// currency
+// check code here: https://developer.paypal.com/api/rest/reference/currency-codes
+// default: USD
+
 $c_paymentgateway = "/checkout/payment";
 // If you don't know what you are doing leave it as default
 // default: /checkout/payment
