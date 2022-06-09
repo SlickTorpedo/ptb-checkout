@@ -22,7 +22,7 @@ $c_paypaltoken = "test";
 // video: https://youtu.be/MxYnR4qzUQI
 // default: test
 
-$c_currency = "USD"
+$c_currency = "USD";
 // currency
 // check code here: https://developer.paypal.com/api/rest/reference/currency-codes
 // default: USD
