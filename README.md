@@ -38,6 +38,19 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 12. **Go to the `PANEL` folder** and **follow the instructions** for modifications on the pterodactyl panel
 13. **Edit CSS** in the file `/checkout/assets/css/style.css` - Edit only the information in the `root` section *(optional)*
 
+14. If you are **not using PHP 7.4** by default you must install it and configure Nginx to use the version for our files. Follow the instructions below : 
+	- Run `sudo add-apt-repository ppa:ondrej/php` for add PHP repository
+	- Run `sudo apt-get update` for update repository
+	- Run `sudo apt-get install php7.4 php7.4-fpm php7.4-xml php7.4-mysql php7.4-gd php7.4-curl php7.4-mbstring` for install PHP 7.4 and extension
+	- In `/etc/nginx/site-available/pterodactyl.conf` add before `location ~ \.php$ {` this
+	```
+	location ~ "^\/checkout\/.*\.php$" {
+		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}```
+
 # DEMO
 
 <img width="900" style="inline-block" src="https://github.com/SlickTorpedo/ptb-checkout/blob/V2/DEMO.gif?raw=true">
