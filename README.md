@@ -42,7 +42,9 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 	- Run `sudo add-apt-repository ppa:ondrej/php` for add PHP repository
 	- Run `sudo apt-get update` for update repository
 	- Run `sudo apt-get install php7.4 php7.4-fpm php7.4-xml php7.4-mysql php7.4-gd php7.4-curl php7.4-mbstring` for install PHP 7.4 and extension
-	- In `/etc/nginx/site-available/pterodactyl.conf` add before `location ~ \.php$ {` this
+	- Config web server :
+		- APACHE : *If you have an apache server please contact us as we have not done any testing yet. This will allow us to complete the documentation while solving your problem.*
+		- NGINX : In `/etc/nginx/site-available/pterodactyl.conf` add before `location ~ \.php$ {` this
 	```
 	location ~ "^\/checkout\/.*\.php$" {
 		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
