@@ -34,8 +34,9 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 	- ```CREATE TABLE creatorcodes (codename LONGTEXT, type LONGTEXT, amount BIGINT);``` *(For the creator code but will not be used in this version, __but you must create the table for the proper functioning!__)*<br>
 	- ```CREATE TABLE creatoruses (codename LONGTEXT, valid BIGINT, userid BIGINT, timestamp BIGINT, ip LONGTEXT);``` *(To have a trace of the codes used but will not be used in this version, __but you must create the table for the proper functioning!__)*<br>
 	- ```CREATE TABLE invoices (touser LONGTEXT, street LONGTEXT, state LONGTEXT, country LONGTEXT, zipcode BIGINT, quantity BIGINT, invoice LONGTEXT, timestamp LONGTEXT);``` *(For the invoice generation system)* <br>
-11. Completed the configuration file in `/checkout/config.php`
-12. Go to the `PANEL` folder and follow the instructions for modifications on the pterodactyl panel
+11. **Completed the configuration file** in `/checkout/config.php`
+12. **Go to the `PANEL` folder** and **follow the instructions** for modifications on the pterodactyl panel
+13. **Edit CSS** in the file `/assets/css/style.css` - Edit only the information in the `root` section *(optional)*
 
 # DEMO
 
