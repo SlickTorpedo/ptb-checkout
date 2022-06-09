@@ -188,7 +188,7 @@
           	$nsrandvar = $amount + 5318;
 			?>
           	<input type="hidden" id="myText" value="<?php echo $amount ?>">
-          	Purchasing a Gift Card for <strong><?php echo $amount ?></strong>$<br><br>
+          	Purchasing a Gift Card for <strong><?php echo $amount ?></strong><?php echo $c_currencysymbol ?><br><br>
     		<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $c_paypaltoken ?>&currency=<?php echo $c_currency ?>"></script>
             <!-- <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script> -->
 
