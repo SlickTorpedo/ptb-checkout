@@ -189,7 +189,7 @@
 			?>
           	<input type="hidden" id="myText" value="<?php echo $amount ?>">
           	Purchasing <strong><?php echo $amount ?></strong> account credits<br><br>
-    		<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $c_paypaltoken ?>&currency=USD"></script>
+    		<script src="https://www.paypal.com/sdk/js?client-id=<?php echo $c_paypaltoken ?>&currency=<?php echo $c_currency ?>"></script>
             <!-- <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script> -->
 
     		<!-- Set up a container element for the button -->
