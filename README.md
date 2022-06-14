@@ -73,6 +73,6 @@ If you have a concern, a misunderstanding, ideas for improvement, or just want t
 
 #
 
-Create by `Slick` and <a href="https://www.buymeacoffee.com/ikiae">`Ikiae`</a>
+Create by <a href="https://nexussociety.net">`Slick`</a> and <a href="https://www.buymeacoffee.com/ikiae">`Ikiae`</a>
 
 Made with Love ❤️
