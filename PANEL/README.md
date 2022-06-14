@@ -32,7 +32,7 @@ TO
     $amount = $amount + 1;
     echo
     '<body onload="document.redirectform.submit()">
-        <form method="POST" action="https://panel.domain.com/payment/?amount='.$amount.'&uid=' . Auth::user()->id . '" name="redirectform">
+        <form method="POST" action="https://panel.domain.com/checkout/payment/?amount='.$amount.'&uid=' . Auth::user()->id . '" name="redirectform">
         </form>
     </body>';
   }
