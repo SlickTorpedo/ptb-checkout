@@ -67,12 +67,6 @@
         $ip = mysqli_real_escape_string($conn, $_SERVER['REMOTE_ADDR']);
         $time = time();
 
-        $sql = "INSERT INTO creatoruses (codename,valid,userid,timestamp,ip) VALUES ('$usedcode',1,'$uid','$time','$ip');";
-        $result = mysqli_query($conn, $sql); 
-        if (!mysqli_query($conm,"INSERT INTO creatoruses (codename,valid,userid,timestamp,ip) VALUES ('$usedcode',1,'$uid','$time','$ip');")) {
-            echo("Error description: " . mysqli_error($conn));
-        }
-
         mysqli_close($conn);
         echo 'Token Validated! Redirecting you now!';
     } else {
