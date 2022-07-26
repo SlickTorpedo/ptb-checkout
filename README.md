@@ -51,7 +51,8 @@ There's also some other security upgrades, stuff to make it run faster, and a lo
 		fastcgi_index index.php;
 		include fastcgi_params;
 		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-	}```
+	}
+	```
 
 # DEMO
 
