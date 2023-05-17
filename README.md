@@ -1,3 +1,5 @@
+# There is a security vulnerability with this, please do not use it right now.
+
 **YOU WILL NEED A PAYPAL BUISNESS ACCOUNT FOR THIS**
 
 **YOU WILL NEED THE MUBEEN BILLING MODULE FOR THIS**
