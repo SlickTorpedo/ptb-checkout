@@ -1,4 +1,4 @@
-# There is a security vulnerability with this, please do not use it right now.
+# There is a security vulnerability with this, please do not use this software right now.
 
 **YOU WILL NEED A PAYPAL BUISNESS ACCOUNT FOR THIS**
 
